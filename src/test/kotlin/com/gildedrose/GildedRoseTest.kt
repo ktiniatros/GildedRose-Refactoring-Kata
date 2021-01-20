@@ -140,6 +140,24 @@ internal class GildedRoseTest {
         assertEquals(9, app.qualityItems.first().sellIn)
     }
 
+    @Test
+    fun `given a conjured item when days pass then quality degrades`() {
+        val items = arrayOf(Item("Conjured", 1, 10))
+        val app = GildedRose(items)
+        app.updateQuality()
+        assertEquals(8, app.qualityItems.first().quality)
+        assertEquals(0, app.qualityItems.first().sellIn)
+    }
+
+    @Test
+    fun `given an expired conjured item when days pass then quality degrades more`() {
+        val items = arrayOf(Item("Conjured", 0, 10))
+        val app = GildedRose(items)
+        app.updateQuality()
+        assertEquals(7, app.qualityItems.first().quality)
+        assertEquals(-1, app.qualityItems.first().sellIn)
+    }
+
 }
 
 

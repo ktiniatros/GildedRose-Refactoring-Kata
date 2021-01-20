@@ -11,7 +11,7 @@ sealed class QualityItem(val item: Item) {
         return quality
     }
 
-    fun decreaseQuality(currentQuality: Int): Int {
+    open fun decreaseQuality(currentQuality: Int): Int {
         val quality = if (sellIn > 0) {
             currentQuality - 1
         } else {
@@ -57,9 +57,22 @@ sealed class QualityItem(val item: Item) {
             return ConcertBackstagePass(sellIn, quality)
         }
     }
+
     class Sulfuras(override val sellIn: Int): QualityItem(Item(sulfuras, sellIn, sulfurasQuality)) {
 
         override fun update() = Sulfuras(sellIn)
+    }
+
+    class Conjured(override val sellIn: Int, override val quality: Int): QualityItem(Item(conjured, sellIn, quality)) {
+        override fun decreaseQuality(currentQuality: Int): Int {
+            val quality = if (sellIn > 0) {
+                currentQuality - 2
+            } else {
+                currentQuality - 3
+            }
+            if (quality < 0) return 0
+            return quality
+        }
     }
 
     companion object {
@@ -69,10 +82,13 @@ sealed class QualityItem(val item: Item) {
         const val sulfuras = "Sulfuras, Hand of Ragnaros"
         const val sulfurasQuality = 80
 
+        const val conjured = "Conjured"
+
         fun create(item: Item): QualityItem = when(item.name) {
             agedBrie -> AgedBrie(item.sellIn, item.quality)
             concertBackstagePass -> ConcertBackstagePass(item.sellIn, item.quality)
             sulfuras -> Sulfuras(item.sellIn)
+            conjured -> Conjured(item.sellIn, item.quality)
             else -> PlainItem(item.name, item.sellIn, item.quality)
         }
     }
