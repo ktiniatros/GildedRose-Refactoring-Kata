@@ -10,8 +10,8 @@ internal class GildedRoseTest {
         val items = arrayOf(Item("Sulfuras, Hand of Ragnaros", 90, 100))
         val app = GildedRose(items)
         app.updateQuality()
-        assertEquals(90, items.first().sellIn)
-        assertEquals(100, items.first().quality)
+        assertEquals(90, app.qualityItems.first().sellIn)
+        assertEquals(100, app.qualityItems.first().quality)
     }
 
     @Test
@@ -19,8 +19,8 @@ internal class GildedRoseTest {
         val items = arrayOf(Item("Plain item", 9, 10))
         val app = GildedRose(items)
         app.updateQuality()
-        assertEquals(9, items.first().quality)
-        assertEquals(8, items.first().sellIn)
+        assertEquals(9, app.qualityItems.first().quality)
+        assertEquals(8, app.qualityItems.first().sellIn)
     }
 
     @Test
@@ -28,8 +28,8 @@ internal class GildedRoseTest {
         val items = arrayOf(Item("Aged Brie", 9, 10))
         val app = GildedRose(items)
         app.updateQuality()
-        assertEquals(11, items.first().quality)
-        assertEquals(8, items.first().sellIn)
+        assertEquals(11, app.qualityItems.first().quality)
+        assertEquals(8, app.qualityItems.first().sellIn)
     }
 
     @Test
@@ -37,8 +37,8 @@ internal class GildedRoseTest {
         val items = arrayOf(Item("Backstage passes to a TAFKAL80ETC concert", 81, 10))
         val app = GildedRose(items)
         app.updateQuality()
-        assertEquals(11, items.first().quality)
-        assertEquals(80, items.first().sellIn)
+        assertEquals(11, app.qualityItems.first().quality)
+        assertEquals(80, app.qualityItems.first().sellIn)
     }
 
     @Test
@@ -46,8 +46,8 @@ internal class GildedRoseTest {
         val items = arrayOf(Item("Backstage passes to a TAFKAL80ETC concert", 81, 49))
         val app = GildedRose(items)
         app.updateQuality()
-        assertEquals(50, items.first().quality)
-        assertEquals(80, items.first().sellIn)
+        assertEquals(50, app.qualityItems.first().quality)
+        assertEquals(80, app.qualityItems.first().sellIn)
     }
 
     @Test
@@ -55,8 +55,8 @@ internal class GildedRoseTest {
         val items = arrayOf(Item("Backstage passes to a TAFKAL80ETC concert", 10, 49))
         val app = GildedRose(items)
         app.updateQuality()
-        assertEquals(50, items.first().quality)
-        assertEquals(9, items.first().sellIn)
+        assertEquals(50, app.qualityItems.first().quality)
+        assertEquals(9, app.qualityItems.first().sellIn)
     }
 
     @Test
@@ -64,8 +64,8 @@ internal class GildedRoseTest {
         val items = arrayOf(Item("Backstage passes to a TAFKAL80ETC concert", 5, 49))
         val app = GildedRose(items)
         app.updateQuality()
-        assertEquals(50, items.first().quality)
-        assertEquals(4, items.first().sellIn)
+        assertEquals(50, app.qualityItems.first().quality)
+        assertEquals(4, app.qualityItems.first().sellIn)
     }
 
     @Test
@@ -73,8 +73,8 @@ internal class GildedRoseTest {
         val items = arrayOf(Item("Backstage passes to a TAFKAL80ETC concert", 10, 48))
         val app = GildedRose(items)
         app.updateQuality()
-        assertEquals(50, items.first().quality)
-        assertEquals(9, items.first().sellIn)
+        assertEquals(50, app.qualityItems.first().quality)
+        assertEquals(9, app.qualityItems.first().sellIn)
     }
 
     @Test
@@ -82,8 +82,8 @@ internal class GildedRoseTest {
         val items = arrayOf(Item("Backstage passes to a TAFKAL80ETC concert", 5, 48))
         val app = GildedRose(items)
         app.updateQuality()
-        assertEquals(50, items.first().quality)
-        assertEquals(4, items.first().sellIn)
+        assertEquals(50, app.qualityItems.first().quality)
+        assertEquals(4, app.qualityItems.first().sellIn)
     }
 
     @Test
@@ -91,8 +91,8 @@ internal class GildedRoseTest {
         val items = arrayOf(Item("Backstage passes to a TAFKAL80ETC concert", 5, 46))
         val app = GildedRose(items)
         app.updateQuality()
-        assertEquals(49, items.first().quality)
-        assertEquals(4, items.first().sellIn)
+        assertEquals(49, app.qualityItems.first().quality)
+        assertEquals(4, app.qualityItems.first().sellIn)
     }
 
     @Test
@@ -100,8 +100,8 @@ internal class GildedRoseTest {
         val items = arrayOf(Item("Aged Brie", 0, 10))
         val app = GildedRose(items)
         app.updateQuality()
-        assertEquals(12, items.first().quality)
-        assertEquals(-1, items.first().sellIn)
+        assertEquals(12, app.qualityItems.first().quality)
+        assertEquals(-1, app.qualityItems.first().sellIn)
     }
 
     @Test
@@ -109,8 +109,8 @@ internal class GildedRoseTest {
         val items = arrayOf(Item("Plain item", 0, 10))
         val app = GildedRose(items)
         app.updateQuality()
-        assertEquals(8, items.first().quality)
-        assertEquals(-1, items.first().sellIn)
+        assertEquals(8, app.qualityItems.first().quality)
+        assertEquals(-1, app.qualityItems.first().sellIn)
     }
 
     @Test
@@ -118,8 +118,8 @@ internal class GildedRoseTest {
         val items = arrayOf(Item("Backstage passes to a TAFKAL80ETC concert", 0, 10))
         val app = GildedRose(items)
         app.updateQuality()
-        assertEquals(0, items.first().quality)
-        assertEquals(-1, items.first().sellIn)
+        assertEquals(0, app.qualityItems.first().quality)
+        assertEquals(-1, app.qualityItems.first().sellIn)
     }
 
     @Test
@@ -127,8 +127,8 @@ internal class GildedRoseTest {
         val items = arrayOf(Item("Plain item", 0, 0))
         val app = GildedRose(items)
         app.updateQuality()
-        assertEquals(0, items.first().quality)
-        assertEquals(-1, items.first().sellIn)
+        assertEquals(0, app.qualityItems.first().quality)
+        assertEquals(-1, app.qualityItems.first().sellIn)
     }
 
     @Test
@@ -136,8 +136,8 @@ internal class GildedRoseTest {
         val items = arrayOf(Item("Aged Brie", 10, 50))
         val app = GildedRose(items)
         app.updateQuality()
-        assertEquals(50, items.first().quality)
-        assertEquals(9, items.first().sellIn)
+        assertEquals(50, app.qualityItems.first().quality)
+        assertEquals(9, app.qualityItems.first().sellIn)
     }
 
 }
