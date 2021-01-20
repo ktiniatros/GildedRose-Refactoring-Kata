@@ -7,11 +7,11 @@ internal class GildedRoseTest {
 
     @Test
     fun `given a Sulfuras when days pass then quality and sellIn do not change`() {
-        val items = arrayOf(Item("Sulfuras, Hand of Ragnaros", 90, 100))
+        val items = arrayOf(Item("Sulfuras, Hand of Ragnaros", 90, 80))
         val app = GildedRose(items)
         app.updateQuality()
         assertEquals(90, app.qualityItems.first().sellIn)
-        assertEquals(100, app.qualityItems.first().quality)
+        assertEquals(80, app.qualityItems.first().quality)
     }
 
     @Test

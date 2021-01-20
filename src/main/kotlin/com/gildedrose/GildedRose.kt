@@ -57,8 +57,9 @@ sealed class QualityItem(val item: Item) {
             return ConcertBackstagePass(sellIn, quality)
         }
     }
-    class Sulfuras(override val sellIn: Int, override val quality: Int): QualityItem(Item(sulfuras, sellIn, quality)) {
-        override fun update() = Sulfuras(sellIn, quality)
+    class Sulfuras(override val sellIn: Int): QualityItem(Item(sulfuras, sellIn, sulfurasQuality)) {
+
+        override fun update() = Sulfuras(sellIn)
     }
 
     companion object {
@@ -66,11 +67,12 @@ sealed class QualityItem(val item: Item) {
         const val concertBackstagePass = "Backstage passes to a TAFKAL80ETC concert"
         // FOR THE HORDE!!
         const val sulfuras = "Sulfuras, Hand of Ragnaros"
+        const val sulfurasQuality = 80
 
         fun create(item: Item): QualityItem = when(item.name) {
             agedBrie -> AgedBrie(item.sellIn, item.quality)
             concertBackstagePass -> ConcertBackstagePass(item.sellIn, item.quality)
-            sulfuras -> Sulfuras(item.sellIn, item.quality)
+            sulfuras -> Sulfuras(item.sellIn)
             else -> PlainItem(item.name, item.sellIn, item.quality)
         }
     }
